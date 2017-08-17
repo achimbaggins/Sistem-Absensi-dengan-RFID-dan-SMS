@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <%- include css %>
+    <title></title>
+  </head>
+  <body>
+    <%- include head %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <% if(pesan){ %>
+            <span style="color:red"><%= pesan %></span>
+          <% } %>
+
+          <form class="form-inline" action="/users" method="post">
+            <label>Username</label><br>
+            <input type="text" name="username" value="" class="form-control"><br>
+            <label>Password</label><br>
+            <input type="password" name="password" value="" class="form-control"><br>
+            <label>Role</label><br>
+            <select class="form-control" name="role">
+              <option value="administrator">Administrator</option>
+              <option value="akademik">Akademik</option>
+              <option value="guru">Guru</option>
+            </select><br><br>
+            <button type="submit" name="button" class="btn btn-info"><span class="glyphicon glyphicon-send"></span> &nbsp; Add User</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <table class="table">
+            <tr>
+              <td>No</td>
+              <td>ID</td>
+              <td>Username</td>
+              <td>Password</td>
+              <td>Secret</td>
+              <td>Role</td>
+              <td>Action</td>
+            </tr>
+            <% var i = 1; dataUser.forEach(d => {%>
+            <tr>
+              <td><%= i++ %></td>
+              <td>
+                <% if(d.id == 1){ %>
+                <%} else {%>
+                <%= d.id %>
+                <%}%>
+              </td>
+              <td><%= d.username %></td>
+              <td><%= d.password %></td>
+              <td><%= d.secret %></td>
+              <td><%= d.role %></td>
+              <td>
+                <% if(d.id == 1){ %>
+                <%} else {%>
+                  <a href="/users/edit/<%= d.id %>" title="Edit">
+                      <span class="glyphicon glyphicon-edit"></span>
+                  </a>
+
+                  <a href="/users/delete/<%= d.id %>" title="Delete" onclick="return confirm('Kamu yakin mau menghapus?\nUser: <%= d.username %>\nRole: <%= d.role %>\n\nUntuk membatalkan klik Cancel')">
+                      <span class="glyphicon glyphicon-trash"></span>
+                  </a>
+                  <%}%>
+              </td>
+            </tr>
+            <% }) %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

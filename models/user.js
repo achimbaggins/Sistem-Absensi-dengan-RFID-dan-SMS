@@ -10,16 +10,16 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     hooks: {
       beforeCreate: models => {
-        let salt =  salt().toString();
-        let pass = encryptme(models.password, salt)
+        let garamin =  salt().toString();
+        let pass = encryptme(models.password, garamin)
         models.password = pass;
-        models.secret = salt
+        models.secret = garamin
       },
       beforeUpdate: models => {
-        let salt =  salt().toString();
-        let pass = encryptme(models.password, salt)
+        let garamin =  salt().toString();
+        let pass = encryptme(models.password, garamin)
         models.password = pass;
-        models.secret = salt
+        models.secret = garamin
       }
     }
   });

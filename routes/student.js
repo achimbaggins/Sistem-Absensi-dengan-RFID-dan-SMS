@@ -3,6 +3,15 @@ var router = express.Router();
 var db = require('../models')
 
 /* GET users listing. */
+router.use((req, res, next) => {
+  if(req.session.authority > 0){
+    next()
+  } else {
+    res.redirect('/login')
+  }
+})
+
+
 router.get('/', function(req, res, next) {
   db.Student.findAll({
     order: [['name']]

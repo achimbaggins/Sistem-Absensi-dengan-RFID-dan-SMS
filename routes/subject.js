@@ -8,6 +8,13 @@ var nexmo = new Nexmo({
   apiSecret: 'ef392505ed0e58cc',
 });
 
+router.use((req, res, next) => {
+  if(req.session.authority > 0){
+    next()
+  } else {
+    res.redirect('/login')
+  }
+})
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
