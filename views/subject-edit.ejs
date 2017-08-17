@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>  <%- include css.ejs %>
+
+  </head>
+  <body>
+
+    <%- include head.ejs %>
+
+
+  <div style="margin-top:35px"><!---->
+
+    <div class="container">
+      <form class="form-inline" action="/subjects/edit/<%= data.id %>" method="post">
+        <label>Mata Pelajaran</label> <input type="text" name="name" value="<%= data.name %>">
+        <button type="submit" name="button">Edit Mapel</button>
+      </form>
+
+
+    </div>
+
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>  <%- include css.ejs %>
+
+  </head>
+  <body>
+
+    <%- include head.ejs %>
+
+
+  <div style="margin-top:35px"><!---->
+
+    <div class="container">
+      <form class="form-inline" action="/subjects" method="post">
+        <label>Mata Pelajaran</label> <input type="text" name="name" value="">
+        <button type="submit" name="button">Tambah Mapel</button>
+      </form>
+
+      <!--tabel-->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Subject Name</th>
+            <th>Presensi</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+      <% if(data.length == 0){ %>
+        <tr>
+          <td colspan="5">Mohon maaf, belum ada data</td>
+        </tr>
+      <% } else { %>
+
+          <tbody>
+            <%var i =1; data.forEach(d=>{ %>
+              <tr>
+                <td> <%= i++ %> </td>
+                <td> <%= d.id %> </td>
+                <td> <%= d.name %> </td>
+                <td>
+                  <a href="/subjects/<%= d.id %>/isi-presensi">
+                    <button type="button" name="button">Isi Presensi</button>
+                  </a>
+                </td>
+                <td>
+                  <a href="/subjects/edit/<%= d.id %>">Edit</a>
+                  <a href="/subjects/delete/<%= d.id %>">Delete</a>
+                </td>
+              </tr>
+            <%})%>
+          </tbody>
+
+      <% } %>
+      </table>
+    </div>
+
+  </div>
+
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include css.ejs %>
+
+  </head>
+  <body>
+
+    <%- include head.ejs %>
+
+    <center>
+      <form class="form-inline" action="/students/edit/<%= data.id %>" method="post">
+        <label>Nama Siswa</label> <br>
+        <input type="text" name="name" value="<%= data.name %>"> <br>
+        <label>Email</label> <br>
+        <input type="text" name="email" value="<%= data.email %>"> <br>
+        <label>Alamat</label> <br>
+        <input type="text" name="address" value="<%= data.address %>"> <br>
+        <label>No HP Wali Murid</label> <br>
+        <input type="text" name="no_hp" value="<%= data.no_hp %>"> <br>
+        <label>URL Foto</label> <br>
+        <input type="text" name="img" value="<%= data.img %>"> <br>
+        <label>RFID</label> <br>
+        <input type="text" name="rfid" value="<%= data.rfid %>"> <br>
+        <button type="submit" name="button">Edit Student</button>
+      </form>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include css.ejs %>
+
+  </head>
+  <body>
+
+    <%- include head.ejs %>
+    <center>
+      <form class="form-inline" action="/students" method="post">
+        <table>
+          <tr>
+            <td>
+              <label>Nama Siswa</label> <br>
+              <input type="text" name="name"> <br>
+              <label>Email</label> <br>
+              <input type="text" name="email"> <br>
+            </td>
+            <td>
+              <label>Alamat</label> <br>
+              <input type="text" name="address"> <br>
+              <label>No HP Wali Murid</label> <br>
+              <input type="text" name="no_hp"> <br>
+            </td>
+            <td>
+              <label>URL Foto</label> <br>
+              <input type="text" name="img"> <br>
+              <label>RFID</label> <br>
+              <input type="text" name="rfid"> <br>
+            </td>
+            <td><br>
+              <button type="submit" name="button">Add Student</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </center>
+<br><br>
+    <div class="container"><!--tabel-->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Nama Siswa</th>
+            <th>Alamat</th>
+            <th>Email</th>
+            <th>No Handphone Wali</th>
+            <th>No RFID</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%if(data.length === 0){ %>
+            <tr>
+              <td colspan="6">Mohon maaf data belum ada</td>
+            </tr>
+          <%} else { %>
+            <% var i = 1; data.forEach(d => { %>
+              <tr>
+                <td> <%= i++ %> </td>
+                <td> <%= d.id %> </td>
+                <td> <%= d.name %> </td>
+                <td> <%= d.address %> </td>
+                <td> <%= d.email %> </td>
+                <td> <%= d.no_hp %> </td>
+                <td> <%= d.rfid %> </td>
+                <td>
+                  <a href="/students/edit/<%= d.id %>">Edit</a>
+                  <a href="/students/delete/<%= d.id %>">Delete</a>
+                </td>
+              </tr>
+            <% }) %>
+          <%}%>
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>
