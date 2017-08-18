@@ -166,7 +166,7 @@ router.post('/:id/isi-presensi', (req, res) => {
                 }
               })
               .then(dataSMSsub => {
-                var from = 'Achim';
+                var from = 'SMA Hacktiv8';
                 var to = `${dataSMS.dataValues.no_hp}`
                 var text = `Anak Bapak/Ibu ${dataSMS.dataValues.name} sudah hadir pada Mata Pelajaran ${dataSMSsub.dataValues.name}`;
                 // console.log(dataSMSsub.dataValues.name);
