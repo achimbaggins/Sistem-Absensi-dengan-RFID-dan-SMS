@@ -205,4 +205,26 @@ router.post('/:id/isi-presensi', (req, res) => {
 })
 
 
+router.get('/:id/data-absensi', (req, res) => {
+  // db.query('SELECT * FROM Attendance LEFT JOIN Students ON Attendance.StudentId = Students.id ', { type: db.QueryTypes.SELECT}).then(dataAbsen => {
+  // res.send(dataAbsen)
+  // })
+  db.Student.findAll({
+    include: [db.Attendance]
+  },{
+    where: {
+      SubjectId: req.params.id,
+      StudentId: null,
+      createdAt: {
+        // $lt: new Date(),
+        $gt: new Date(new Date() - 24 * 60 * 60 * 1000)
+      }
+    }
+  })
+  .then(ok => {
+    res.render('data-absensi', {ok:ok})
+  })
+})
+
+
 module.exports = router;

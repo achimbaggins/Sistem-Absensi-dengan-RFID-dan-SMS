@@ -52,6 +52,11 @@
 
       <%} else { %>
         <h3>Jumlah siswa : <%= dataStudent.length %>, Hadir : <%= data.length%>, Belum Hadir : <%= dataStudent.length - data.length %></h3>
+        <% if((dataStudent.length - data.length) > 0){ %>
+          <a href="/subjects/<%= data[0].SubjectId %>/data-absensi">
+            <button type="button" name="button" class="btn btn-success"><span class="glyphicon glyphicon-off"></span> Daftar Tdk Hadir </button>
+          </a>
+        <% } %>
       <%}%>
       <!--tabel-->
       <table class="table table-striped">
