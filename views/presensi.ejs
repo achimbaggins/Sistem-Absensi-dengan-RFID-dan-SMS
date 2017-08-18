@@ -7,10 +7,12 @@
   <body>
       <%- include head.ejs %>
 
-    <div style="margin-top:35px"><!---->
+  <div style="margin-top:5px"  class="container">
 
-      <div style="width:50%;float:left" class=""><!--rangka untuk no ID-->
-        <div style="width:50%;left:0;right:0;margin-left:auto;margin-right:auto">
+    <div style="width:30%;float:left"><!---->
+      <center>
+      <div style="margin-bottom:35px" class=""><!--rangka untuk no ID-->
+        <div>
           <form class="form-inline" action="/subjects/<%= subid %>/isi-presensi" method="post">
             <input style="margin-top:50px" class="form-control" type="text" name="rfid" value="" autofocus placeholder="Tap Card Here"><!--input No ID-->
             <button type="submit" name="button" hidden="hidden">Isi Presensi</button>
@@ -18,27 +20,31 @@
         </div>
       </div>
 
-      <div style="width:50%;float:left" class=""><!--rangka untuk foto-->
+      <div style="" class=""><!--rangka untuk foto-->
         <%if(data.length == 0){ %>
 
         <%} else { %>
-          <div style="width:50%;left:0;right:0;margin-left:auto;margin-right:auto"  align="center">
+          <div>
             <% if(data[0].Student.img == ''){ %>
               <img src="../../img/no_pict.png" alt="foto" style="border-radius: 70px; height: 140px;">
             <% } else { %>
             <img src="../../img/<%= data[0].Student.img %>" alt="foto" style="border-radius: 70px; height: 140px;">
             <%}%>
             <table style="text-align: center">
-              <td><h4>Selamat Datang : <%= data[0].Student.name %></h4></td>
+              <td>
+                <h5>Selamat Datang :</h5>
+                <h4> <%= data[0].Student.name %></h4>
+              </td>
               <!-- <td></td> -->
             </table><br>
           </div>
         <%}%>
 
       </div>
+      </center>
     </div>
 
-    <div class="container">
+    <div style="width:70%;float:left">
       <%if(pesan){ %>
         <h4 style="color:red"><%= pesan %></h4>
       <%}%>
@@ -56,10 +62,11 @@
             <th>Nama Siswa</th>
             <th>Email</th>
             <th>No Handphone Wali</th>
+            <th>Status</th>
           </tr>
         </thead>
         <%if(data.length == 0){ %>
-          Belum ada yang ada siswa yang hadir, tap di atas yah!
+          Belum ada yang ada siswa yang hadir, tap di sebelah ya!
         <%} else { %>
           <% var i =1; data.forEach(d => { %>
             <tbody>
@@ -69,12 +76,15 @@
                 <td> <%= d.Student.name %> </td>
                 <td> <%= d.Student.email %> </td>
                 <td> <%= d.Student.no_hp %> </td>
+                <td> <%= d.Status %> </td>
               </tr>
             </tbody>
           <% }) %>
         <%}%>
       </table>
     </div>
+
+  </div>
 
   </body>
 </html>

@@ -169,7 +169,7 @@ router.post('/:id/isi-presensi', (req, res) => {
                 var from = 'Achim';
                 var to = `${dataSMS.dataValues.no_hp}`
                 var text = `Anak Bapak/Ibu ${dataSMS.dataValues.name} sudah hadir pada Mata Pelajaran ${dataSMSsub.dataValues.name}`;
-                console.log(dataSMSsub.dataValues.name);
+                // console.log(dataSMSsub.dataValues.name);
                 nexmo.message.sendSms(from, to, text);
                 res.redirect(`/subjects/${req.params.id}/isi-presensi`)
               })

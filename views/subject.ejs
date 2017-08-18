@@ -8,13 +8,13 @@
     <%- include head.ejs %>
 
 
-  <div style="margin-top:35px"><!---->
+  <div style="margin-top:15px"><!---->
 
     <div class="container">
       <form class="form-inline" action="/subjects" method="post">
-        <label>Mata Pelajaran</label> <input type="text" name="name" value="">
-        <button type="submit" name="button">Tambah Mapel</button>
-      </form>
+        <input class="form-control" type="text" name="name" value="" placeholder="Tambah Mata Pelajaran">
+        <button class="btn btn-primary" type="submit" name="button"> <span class="glyphicon glyphicon-send"></span> &nbsp; Tambah Mapel</button>
+      </form><br><br>
 
       <!--tabel-->
       <table class="table table-striped">
@@ -41,12 +41,12 @@
                 <td> <%= d.name %> </td>
                 <td>
                   <a href="/subjects/<%= d.id %>/isi-presensi">
-                    <button type="button" name="button">Isi Presensi</button>
+                    <button class="btn btn-success" type="button" name="button">Isi Presensi</button>
                   </a>
                 </td>
                 <td>
-                  <a href="/subjects/edit/<%= d.id %>">Edit</a>
-                  <a href="/subjects/delete/<%= d.id %>">Delete</a>
+                  <a href="/subjects/edit/<%= d.id %>"><button class="btn btn-warning" type="button" name="button">Edit</button></a>
+                  <a href="/subjects/delete/<%= d.id %>"><button class="btn btn-danger" type="button" name="button">Delete</button></a>
                 </td>
               </tr>
             <%})%>

@@ -7,30 +7,30 @@
   <body>
 
     <%- include head.ejs %>
-    <center>
+    <center><br>
       <form class="form-inline" action="/students" method="post">
         <table>
           <tr>
             <td>
               <label>Nama Siswa</label> <br>
-              <input type="text" name="name"> <br>
+              <input type="text" name="name" class="form-control"> <br>
               <label>Email</label> <br>
-              <input type="text" name="email"> <br>
+              <input type="text" name="email" class="form-control"> <br>
             </td>
             <td>
               <label>Alamat</label> <br>
-              <input type="text" name="address"> <br>
+              <input type="text" name="address" class="form-control"> <br>
               <label>No HP Wali Murid</label> <br>
-              <input type="text" name="no_hp"> <br>
+              <input type="text" name="no_hp" class="form-control"> <br>
             </td>
             <td>
               <label>URL Foto</label> <br>
-              <input type="text" name="img"> <br>
+              <input type="text" name="img" class="form-control"> <br>
               <label>RFID</label> <br>
-              <input type="text" name="rfid"> <br>
+              <input type="text" name="rfid" class="form-control"> <br>
             </td>
             <td><br>
-              <button type="submit" name="button">Add Student</button>
+              <button type="submit" name="button" class="btn btn-info"><span class="glyphicon glyphicon-send"></span> &nbsp; Add Student</button>
             </td>
           </tr>
         </table>

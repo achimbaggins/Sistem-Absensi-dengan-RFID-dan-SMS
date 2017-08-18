@@ -8,22 +8,43 @@
 
     <%- include head.ejs %>
 
-    <center>
-      <form class="form-inline" action="/students/edit/<%= data.id %>" method="post">
-        <label>Nama Siswa</label> <br>
-        <input type="text" name="name" value="<%= data.name %>"> <br>
-        <label>Email</label> <br>
-        <input type="text" name="email" value="<%= data.email %>"> <br>
-        <label>Alamat</label> <br>
-        <input type="text" name="address" value="<%= data.address %>"> <br>
-        <label>No HP Wali Murid</label> <br>
-        <input type="text" name="no_hp" value="<%= data.no_hp %>"> <br>
-        <label>URL Foto</label> <br>
-        <input type="text" name="img" value="<%= data.img %>"> <br>
-        <label>RFID</label> <br>
-        <input type="text" name="rfid" value="<%= data.rfid %>"> <br>
-        <button type="submit" name="button">Edit Student</button>
-      </form>
-    </center>
+    <div class="container">
+
+        <form class="form-inline" action="/students/edit/<%= data.id %>" method="post">
+          <table class="table table-striped">
+            <tr>
+
+              <td>
+                <label for="">Nama Siswa</label><br>
+                <input class="form-control" type="text" name="name" value="<%= data.name %>"> <br><br>
+
+                <label for="">Email</label><br>
+                <input class="form-control" type="text" name="email" value="<%= data.email %>"> <br><br>
+
+                <button class="btn btn-primary btn-sm" type="submit" name="button">Edit Student</button>
+              </td>
+
+              <td>
+                <label for="">Alamat</label><br>
+                <input class="form-control" type="text" name="address" value="<%= data.address %>"> <br><br>
+
+                <label for="">Nomor HP Wali Murid</label><br>
+                <input class="form-control" type="text" name="no_hp" value="<%= data.no_hp %>"> <br><br>
+              </td>
+
+              <td>
+                <label for="">File Foto</label><br>
+                <input class="form-control" type="text" name="img" value="<%= data.img %>"> <br><br>
+
+                <label for="">RFID</label><br>
+                <input class="form-control" type="text" name="rfid" value="<%= data.rfid %>"> <br><br>
+              </td>
+
+            </tr>
+          </table>
+        </form>
+
+      <br><br>
+    </div>
   </body>
 </html>
